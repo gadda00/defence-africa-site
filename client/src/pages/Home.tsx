@@ -1,14 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Menu, X, ChevronRight, Mail, Linkedin, Twitter } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronRight,
+  Mail,
+  Linkedin,
+  Twitter,
+  Globe,
+  TrendingUp,
+  Shield,
+  Zap,
+} from "lucide-react";
 import { useState } from "react";
 
 /**
- * Defence Africa Website
+ * Defence Africa Website - Premium Redesign
  * Design Philosophy: Modern Geopolitical Authority
  * - Dark navy blue background with warm gold accents
  * - Playfair Display for headlines, Inter for body
  * - Asymmetric layout with strategic breathing room
+ * - Premium animations and interactive elements
  * - Data visualization motifs reflecting intelligence work
  */
 
@@ -26,38 +38,43 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
+      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border/50">
         <div className="container flex items-center justify-between py-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-accent to-accent/70 rounded-lg flex items-center justify-center shadow-lg">
               <span className="text-accent-foreground font-bold text-sm">DA</span>
             </div>
-            <span className="font-playfair font-bold text-lg">Defence Africa</span>
+            <div>
+              <p className="font-playfair font-bold text-lg leading-none">
+                Defence Africa
+              </p>
+              <p className="text-xs text-muted-foreground">Strategic Intelligence</p>
+            </div>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection("services")}
-              className="text-sm hover:text-accent transition-colors"
+              className="text-sm font-medium hover:text-accent transition-colors duration-200"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection("briefing")}
-              className="text-sm hover:text-accent transition-colors"
+              className="text-sm font-medium hover:text-accent transition-colors duration-200"
             >
-              Briefing Room
+              Analysis
             </button>
             <button
               onClick={() => scrollToSection("mission")}
-              className="text-sm hover:text-accent transition-colors"
+              className="text-sm font-medium hover:text-accent transition-colors duration-200"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-sm hover:text-accent transition-colors"
+              className="text-sm font-medium hover:text-accent transition-colors duration-200"
             >
               Contact
             </button>
@@ -78,29 +95,29 @@ export default function Home() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-border bg-card">
+          <div className="md:hidden border-t border-border/50 bg-card/50 backdrop-blur">
             <div className="container py-4 flex flex-col gap-4">
               <button
                 onClick={() => scrollToSection("services")}
-                className="text-sm hover:text-accent transition-colors text-left"
+                className="text-sm font-medium hover:text-accent transition-colors text-left"
               >
                 Services
               </button>
               <button
                 onClick={() => scrollToSection("briefing")}
-                className="text-sm hover:text-accent transition-colors text-left"
+                className="text-sm font-medium hover:text-accent transition-colors text-left"
               >
-                Briefing Room
+                Analysis
               </button>
               <button
                 onClick={() => scrollToSection("mission")}
-                className="text-sm hover:text-accent transition-colors text-left"
+                className="text-sm font-medium hover:text-accent transition-colors text-left"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-sm hover:text-accent transition-colors text-left"
+                className="text-sm font-medium hover:text-accent transition-colors text-left"
               >
                 Contact
               </button>
@@ -109,244 +126,365 @@ export default function Home() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 z-0 opacity-40"
-          style={{
-            backgroundImage: "url('/images/hero-map-background.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+      {/* Hero Section - Premium Design */}
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+        {/* Animated Background */}
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage: "url('/images/hero-map-background.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent" />
+        </div>
 
-        {/* Diagonal Accent Stripe */}
-        <div
-          className="absolute top-0 right-0 w-96 h-96 opacity-20"
-          style={{
-            background: "linear-gradient(135deg, #D4A574 0%, transparent 70%)",
-            clipPath: "polygon(100% 0, 0 100%, 100% 100%)",
-          }}
-        />
+        {/* Diagonal Accent Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 opacity-10 pointer-events-none">
+          <div
+            className="w-full h-full"
+            style={{
+              background: "linear-gradient(135deg, #D4A574 0%, transparent 70%)",
+              clipPath: "polygon(100% 0, 0 100%, 100% 100%)",
+            }}
+          />
+        </div>
 
         {/* Content */}
-        <div className="container relative z-10 grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <p className="text-accent text-sm font-semibold tracking-wide">
-                STRATEGIC INTELLIGENCE
-              </p>
-              <h1 className="font-playfair text-5xl md:text-6xl font-bold leading-tight">
-                Deciphering the China-Africa Security Landscape
+        <div className="container relative z-10 grid md:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            {/* Tagline */}
+            <div className="inline-block">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-1 h-6 bg-accent rounded-full" />
+                <p className="text-accent text-xs font-bold tracking-widest">
+                  STRATEGIC INTELLIGENCE
+                </p>
+              </div>
+            </div>
+
+            {/* Main Headline */}
+            <div className="space-y-4">
+              <h1 className="font-playfair text-6xl md:text-7xl font-bold leading-tight">
+                Deciphering the
+                <span className="block text-accent">China-Africa</span>
+                Security Landscape
               </h1>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Defence Africa provides strategic intelligence on China-Africa
-              security dynamics. We combine geopolitical analysis, data-driven
-              insights, and local expertise to help investment managers and
-              corporate leaders navigate complex security challenges.
+            {/* Description */}
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-lg font-light">
+              Expert geopolitical analysis and strategic intelligence for
+              investment managers, corporate leaders, and policy makers
+              navigating China-Africa security dynamics.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+              <button
                 onClick={() => scrollToSection("contact")}
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                className="group px-8 py-4 bg-accent hover:bg-accent/90 text-accent-foreground font-bold rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-accent/20 flex items-center justify-center gap-2"
               >
                 Get Strategic Briefing
-              </Button>
-              <Button
-                variant="outline"
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button
                 onClick={() => scrollToSection("briefing")}
-                className="border-accent text-accent hover:bg-accent/10"
+                className="px-8 py-4 border-2 border-accent/30 hover:border-accent text-foreground hover:text-accent font-bold rounded-lg transition-all duration-300 hover:bg-accent/5"
               >
                 Explore Analysis
-              </Button>
+              </button>
             </div>
 
             {/* Trust Indicators */}
-            <div className="pt-8 flex items-center gap-8 text-sm">
-              <div>
-                <p className="text-accent font-semibold">Founded in Kenya</p>
-                <p className="text-muted-foreground">Local expertise</p>
+            <div className="pt-8 grid grid-cols-2 gap-6 border-t border-border/30">
+              <div className="space-y-1">
+                <p className="text-accent font-bold text-lg">Founded in Kenya</p>
+                <p className="text-muted-foreground text-sm">Local expertise & ground intelligence</p>
               </div>
-              <div>
-                <p className="text-accent font-semibold">AI-Powered</p>
-                <p className="text-muted-foreground">Advanced analysis</p>
+              <div className="space-y-1">
+                <p className="text-accent font-bold text-lg">AI-Powered</p>
+                <p className="text-muted-foreground text-sm">Advanced analytical capabilities</p>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Visual Element */}
+          {/* Right Column - Visual Hero */}
           <div className="hidden md:block relative">
-            <div className="relative aspect-square rounded-lg overflow-hidden border border-accent/20">
-              <img
-                src="/images/briefing-room-hero.png"
-                alt="Intelligence Analysis"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+            <div className="relative">
+              {/* Floating Card */}
+              <div className="absolute -top-8 -right-8 w-32 h-32 bg-accent/10 rounded-lg blur-3xl" />
+
+              <div className="relative aspect-square rounded-2xl overflow-hidden border border-accent/20 shadow-2xl">
+                <img
+                  src="/images/briefing-room-hero.png"
+                  alt="Intelligence Analysis"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+
+                {/* Floating Stats */}
+                <div className="absolute bottom-6 left-6 bg-background/80 backdrop-blur border border-accent/30 rounded-lg p-4 space-y-2">
+                  <p className="text-xs text-muted-foreground">ANALYSIS COVERAGE</p>
+                  <p className="text-accent font-bold text-lg">54 African Nations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-xs text-muted-foreground">Scroll to explore</p>
+            <div className="w-6 h-10 border-2 border-accent/30 rounded-full flex justify-center">
+              <div className="w-1 h-2 bg-accent rounded-full mt-2 animate-pulse" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-card/30 border-t border-border">
-        <div className="container">
-          <div className="mb-16">
-            <p className="text-accent text-sm font-semibold tracking-wide mb-2">
-              OUR EXPERTISE
-            </p>
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold">
+      {/* Services Section - Premium Cards */}
+      <section id="services" className="py-24 bg-card/20 border-t border-border/30 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div
+            className="w-full h-full"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 20% 50%, #D4A574 0%, transparent 50%), radial-gradient(circle at 80% 80%, #4A9FBF 0%, transparent 50%)",
+            }}
+          />
+        </div>
+
+        <div className="container relative z-10">
+          {/* Section Header */}
+          <div className="mb-20 max-w-2xl">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-1 h-6 bg-accent rounded-full" />
+              <p className="text-accent text-xs font-bold tracking-widest">
+                CORE COMPETENCIES
+              </p>
+            </div>
+            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6">
               Strategic Services
             </h2>
+            <p className="text-lg text-muted-foreground">
+              Comprehensive intelligence solutions tailored to your geopolitical
+              risk management needs.
+            </p>
           </div>
 
+          {/* Services Grid */}
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
+                icon: Globe,
                 title: "Geopolitical Risk Analysis",
                 description:
-                  "Deep-dive analysis of China-Africa security dynamics, regional conflicts, and strategic implications for your business.",
-                icon: "📊",
+                  "Deep-dive analysis of China-Africa security dynamics, regional conflicts, and strategic implications for your business operations.",
+                color: "from-accent/20 to-transparent",
               },
               {
+                icon: Shield,
                 title: "Corporate Due Diligence",
                 description:
-                  "Comprehensive security assessments for investments and operations across Africa, with focus on China-related factors.",
-                icon: "🔍",
+                  "Comprehensive security assessments for investments and operations across Africa with focus on China-related factors.",
+                color: "from-blue-500/20 to-transparent",
               },
               {
+                icon: TrendingUp,
                 title: "Strategic Advisory",
                 description:
-                  "Tailored briefings and strategic recommendations for navigating complex geopolitical landscapes and security challenges.",
-                icon: "🎯",
+                  "Tailored briefings and strategic recommendations for navigating complex geopolitical landscapes.",
+                color: "from-cyan-500/20 to-transparent",
               },
-            ].map((service, idx) => (
-              <Card
-                key={idx}
-                className="bg-background border-border hover:border-accent/50 transition-all hover:shadow-lg group"
-              >
-                <div className="p-8 space-y-4">
-                  <div className="text-4xl">{service.icon}</div>
-                  <h3 className="font-playfair text-xl font-bold">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                  <button className="inline-flex items-center gap-2 text-accent hover:gap-3 transition-all text-sm font-semibold mt-4">
-                    Learn More <ChevronRight className="w-4 h-4" />
-                  </button>
+            ].map((service, idx) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={idx}
+                  className="group relative overflow-hidden rounded-xl border border-border/30 hover:border-accent/50 transition-all duration-300 hover:shadow-xl hover:shadow-accent/10"
+                >
+                  {/* Card Background */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                  />
+
+                  {/* Card Content */}
+                  <div className="relative p-8 space-y-6 bg-background/40 backdrop-blur group-hover:bg-background/60 transition-colors duration-300">
+                    <div className="w-14 h-14 bg-accent/20 rounded-lg flex items-center justify-center group-hover:bg-accent/30 transition-colors duration-300">
+                      <Icon className="w-7 h-7 text-accent" />
+                    </div>
+
+                    <div className="space-y-3">
+                      <h3 className="font-playfair text-2xl font-bold group-hover:text-accent transition-colors duration-300">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    <button className="inline-flex items-center gap-2 text-accent hover:gap-3 transition-all text-sm font-bold mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                      Learn More <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
-              </Card>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Briefing Room Section */}
-      <section id="briefing" className="py-20 border-t border-border">
+      {/* Briefing Room Section - Featured Content */}
+      <section id="briefing" className="py-24 border-t border-border/30 relative">
         <div className="container">
-          <div className="mb-16">
-            <p className="text-accent text-sm font-semibold tracking-wide mb-2">
-              LATEST ANALYSIS
-            </p>
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold">
+          {/* Section Header */}
+          <div className="mb-16 max-w-2xl">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-1 h-6 bg-accent rounded-full" />
+              <p className="text-accent text-xs font-bold tracking-widest">
+                LATEST INSIGHTS
+              </p>
+            </div>
+            <h2 className="font-playfair text-5xl md:text-6xl font-bold">
               The Briefing Room
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Featured Article */}
-            <div className="md:col-span-2 lg:col-span-1 lg:row-span-2 bg-card border border-border rounded-lg overflow-hidden hover:border-accent/50 transition-all group">
-              <div className="relative aspect-video overflow-hidden bg-muted">
-                <img
-                  src="/images/services-accent.png"
-                  alt="Featured Analysis"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-8 space-y-4">
-                <p className="text-accent text-xs font-semibold tracking-wide">
-                  FEATURED ANALYSIS
-                </p>
-                <h3 className="font-playfair text-2xl font-bold">
-                  DRC-Rwanda Peace Deal: Reshaping Africa's Critical Minerals
-                  Supply Chain
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  The US-brokered peace agreement represents more than conflict
-                  resolution. It's a strategic play for control of 70% of the
-                  world's cobalt reserves and a direct challenge to China's
-                  dominance in African mineral extraction.
-                </p>
-                <button className="inline-flex items-center gap-2 text-accent hover:gap-3 transition-all text-sm font-semibold mt-4">
-                  Read Full Analysis <ChevronRight className="w-4 h-4" />
-                </button>
+          {/* Featured Article */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="md:col-span-2 group">
+              <div className="relative overflow-hidden rounded-xl border border-border/30 hover:border-accent/50 transition-all duration-300 h-full">
+                {/* Image Container */}
+                <div className="relative aspect-video overflow-hidden bg-muted">
+                  <img
+                    src="/images/services-accent.png"
+                    alt="Featured Analysis"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                </div>
+
+                {/* Content Overlay */}
+                <div className="absolute inset-0 flex flex-col justify-end p-8">
+                  <div className="space-y-4">
+                    <p className="text-accent text-xs font-bold tracking-widest">
+                      FEATURED ANALYSIS
+                    </p>
+                    <h3 className="font-playfair text-3xl font-bold leading-tight">
+                      DRC-Rwanda Peace Deal: Reshaping Africa's Critical
+                      Minerals Supply Chain
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed max-w-lg">
+                      The US-brokered peace agreement represents more than
+                      conflict resolution. It's a strategic play for control of
+                      70% of the world's cobalt reserves.
+                    </p>
+                    <button className="inline-flex items-center gap-2 text-accent hover:gap-3 transition-all text-sm font-bold mt-4">
+                      Read Full Analysis <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Article Grid */}
+            {/* Quick Stats */}
+            <div className="space-y-6">
+              {[
+                { label: "Countries Analyzed", value: "54" },
+                { label: "Active Conflicts", value: "12" },
+                { label: "Trade Routes Monitored", value: "8" },
+              ].map((stat, idx) => (
+                <div
+                  key={idx}
+                  className="bg-card border border-border/30 rounded-lg p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10"
+                >
+                  <p className="text-muted-foreground text-sm mb-2">
+                    {stat.label}
+                  </p>
+                  <p className="font-playfair text-4xl font-bold text-accent">
+                    {stat.value}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Article Grid */}
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               {
                 title: "China's Global Security Initiative in Africa",
                 date: "Dec 2024",
+                category: "Policy",
               },
               {
                 title: "The Lobito Corridor: Infrastructure & Strategic Competition",
                 date: "Nov 2024",
+                category: "Infrastructure",
               },
               {
                 title: "Regional Military Cooperation: New Alliances Forming",
                 date: "Oct 2024",
+                category: "Military",
               },
             ].map((article, idx) => (
-              <Card
+              <div
                 key={idx}
-                className="bg-card border-border hover:border-accent/50 transition-all group cursor-pointer"
+                className="group bg-card border border-border/30 rounded-lg overflow-hidden hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10"
               >
-                <div className="p-6 space-y-3">
-                  <p className="text-muted-foreground text-xs">{article.date}</p>
-                  <h4 className="font-playfair text-lg font-bold group-hover:text-accent transition-colors">
+                <div className="p-6 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <p className="text-muted-foreground text-xs font-semibold">
+                      {article.date}
+                    </p>
+                    <span className="text-xs font-bold text-accent bg-accent/10 px-3 py-1 rounded-full">
+                      {article.category}
+                    </span>
+                  </div>
+                  <h4 className="font-playfair text-lg font-bold group-hover:text-accent transition-colors duration-300 leading-tight">
                     {article.title}
                   </h4>
-                  <button className="inline-flex items-center gap-2 text-accent text-sm font-semibold group-hover:gap-3 transition-all">
+                  <button className="inline-flex items-center gap-2 text-accent text-sm font-bold group-hover:gap-3 transition-all opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                     Read <ChevronRight className="w-3 h-3" />
                   </button>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
 
           <div className="mt-12 text-center">
-            <Button
-              variant="outline"
-              className="border-accent text-accent hover:bg-accent/10"
-            >
-              View All Articles
-            </Button>
+            <button className="px-8 py-4 border-2 border-accent/30 hover:border-accent text-foreground hover:text-accent font-bold rounded-lg transition-all duration-300 hover:bg-accent/5 inline-flex items-center gap-2">
+              View All Articles <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section id="mission" className="py-20 bg-card/30 border-t border-border">
+      <section id="mission" className="py-24 bg-card/20 border-t border-border/30">
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
               <div>
-                <p className="text-accent text-sm font-semibold tracking-wide mb-2">
-                  ABOUT DEFENCE AFRICA
-                </p>
-                <h2 className="font-playfair text-4xl md:text-5xl font-bold">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-1 h-6 bg-accent rounded-full" />
+                  <p className="text-accent text-xs font-bold tracking-widest">
+                    ABOUT US
+                  </p>
+                </div>
+                <h2 className="font-playfair text-5xl md:text-6xl font-bold">
                   Strategic Intelligence from the Ground
                 </h2>
               </div>
 
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed font-light">
                 Founded in Kenya, Defence Africa combines geopolitical expertise
                 with advanced AI analysis to provide unparalleled insights into
                 China-Africa security dynamics. Our team of analysts, security
@@ -355,36 +493,41 @@ export default function Home() {
                 directors, and policy makers.
               </p>
 
-              <div className="space-y-4 pt-4">
+              <div className="space-y-4 pt-6">
                 {[
                   "Deep local expertise across African regions",
                   "AI-powered geopolitical analysis",
                   "Real-time monitoring of security developments",
                   "Tailored briefings for your specific needs",
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-1">
+                  <div key={idx} className="flex items-start gap-4">
+                    <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-accent-foreground text-xs font-bold">
                         ✓
                       </span>
                     </div>
-                    <p className="text-foreground">{item}</p>
+                    <p className="text-foreground font-medium">{item}</p>
                   </div>
                 ))}
               </div>
             </div>
 
+            {/* Right Visual */}
             <div className="relative">
-              <div className="aspect-square rounded-lg overflow-hidden border border-accent/20 bg-muted">
-                <div className="w-full h-full bg-gradient-to-br from-accent/20 to-transparent flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <p className="text-accent text-sm font-semibold">
+              <div className="aspect-square rounded-2xl overflow-hidden border border-accent/20 bg-gradient-to-br from-accent/10 to-transparent flex items-center justify-center">
+                <div className="text-center space-y-6 p-8">
+                  <Zap className="w-16 h-16 text-accent mx-auto" />
+                  <div className="space-y-2">
+                    <p className="text-accent text-sm font-bold tracking-widest">
                       INTELLIGENCE-DRIVEN
                     </p>
-                    <p className="font-playfair text-3xl font-bold">
+                    <p className="font-playfair text-4xl font-bold">
                       Strategic Clarity
                     </p>
                   </div>
+                  <p className="text-muted-foreground text-sm max-w-xs mx-auto">
+                    Cutting-edge analysis for complex geopolitical challenges
+                  </p>
                 </div>
               </div>
             </div>
@@ -393,23 +536,40 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 border-t border-border">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <p className="text-accent text-sm font-semibold tracking-wide mb-2">
-              GET IN TOUCH
-            </p>
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-4">
+      <section id="contact" className="py-24 border-t border-border/30 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 50% 50%, #D4A574 0%, transparent 70%)",
+            }}
+          />
+        </div>
+
+        <div className="container relative z-10">
+          {/* Section Header */}
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="w-1 h-6 bg-accent rounded-full" />
+              <p className="text-accent text-xs font-bold tracking-widest">
+                GET IN TOUCH
+              </p>
+              <div className="w-1 h-6 bg-accent rounded-full" />
+            </div>
+            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6">
               Schedule Your Strategic Briefing
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground font-light">
               Contact Defence Africa to discuss your geopolitical risk
               assessment and security intelligence needs.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <Card className="bg-card border-border p-8 space-y-4">
+          {/* Contact Methods */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-12">
+            <div className="bg-card border border-border/30 rounded-lg p-8 space-y-4 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
               <Mail className="w-8 h-8 text-accent" />
               <h3 className="font-playfair text-xl font-bold">Email</h3>
               <p className="text-muted-foreground">
@@ -417,13 +577,13 @@ export default function Home() {
               </p>
               <a
                 href="mailto:briefings@defence.africa"
-                className="text-accent hover:text-accent/80 font-semibold transition-colors"
+                className="text-accent hover:text-accent/80 font-bold transition-colors inline-block"
               >
                 briefings@defence.africa
               </a>
-            </Card>
+            </div>
 
-            <Card className="bg-card border-border p-8 space-y-4">
+            <div className="bg-card border border-border/30 rounded-lg p-8 space-y-4 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
               <Linkedin className="w-8 h-8 text-accent" />
               <h3 className="font-playfair text-xl font-bold">Connect</h3>
               <p className="text-muted-foreground">
@@ -445,77 +605,81 @@ export default function Home() {
                   <Twitter className="w-5 h-5" />
                 </a>
               </div>
-            </Card>
+            </div>
           </div>
 
           {/* Contact Form */}
-          <div className="max-w-2xl mx-auto mt-12 bg-card border border-border rounded-lg p-8">
+          <div className="max-w-2xl mx-auto bg-card border border-border/30 rounded-xl p-8 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10">
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold">Name</label>
+                  <label className="text-sm font-bold">Name</label>
                   <input
                     type="text"
-                    className="w-full bg-background border border-border rounded px-4 py-2 text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition-colors"
+                    className="w-full bg-background border border-border/30 rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition-colors"
                     placeholder="Your name"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold">Email</label>
+                  <label className="text-sm font-bold">Email</label>
                   <input
                     type="email"
-                    className="w-full bg-background border border-border rounded px-4 py-2 text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition-colors"
+                    className="w-full bg-background border border-border/30 rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-semibold">Organization</label>
+                <label className="text-sm font-bold">Organization</label>
                 <input
                   type="text"
-                  className="w-full bg-background border border-border rounded px-4 py-2 text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition-colors"
+                  className="w-full bg-background border border-border/30 rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition-colors"
                   placeholder="Your organization"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-semibold">Message</label>
+                <label className="text-sm font-bold">Message</label>
                 <textarea
                   rows={4}
-                  className="w-full bg-background border border-border rounded px-4 py-2 text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none"
+                  className="w-full bg-background border border-border/30 rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none"
                   placeholder="Tell us about your intelligence needs..."
                 />
               </div>
 
-              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+              <button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-4 rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-accent/20">
                 Send Inquiry
-              </Button>
+              </button>
             </form>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-card/50 py-12">
+      <footer className="border-t border-border/30 bg-card/30 py-16">
         <div className="container">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+            {/* Brand */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-accent to-accent/70 rounded-lg flex items-center justify-center">
                   <span className="text-accent-foreground font-bold text-sm">
                     DA
                   </span>
                 </div>
-                <span className="font-playfair font-bold">Defence Africa</span>
+                <span className="font-playfair font-bold text-lg">
+                  Defence Africa
+                </span>
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Strategic intelligence on China-Africa security dynamics
               </p>
             </div>
 
-            <div className="space-y-3">
-              <h4 className="font-semibold text-sm">Navigation</h4>
+            {/* Navigation */}
+            <div className="space-y-4">
+              <h4 className="font-bold text-sm">Navigation</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
                   <button
@@ -530,7 +694,7 @@ export default function Home() {
                     onClick={() => scrollToSection("briefing")}
                     className="hover:text-accent transition-colors"
                   >
-                    Briefing Room
+                    Analysis
                   </button>
                 </li>
                 <li>
@@ -544,8 +708,9 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="space-y-3">
-              <h4 className="font-semibold text-sm">Contact</h4>
+            {/* Contact */}
+            <div className="space-y-4">
+              <h4 className="font-bold text-sm">Contact</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
                   <a
@@ -559,8 +724,9 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="space-y-3">
-              <h4 className="font-semibold text-sm">Follow</h4>
+            {/* Social */}
+            <div className="space-y-4">
+              <h4 className="font-bold text-sm">Follow</h4>
               <div className="flex gap-4">
                 <a
                   href="#"
@@ -580,7 +746,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
+          {/* Copyright */}
+          <div className="border-t border-border/30 pt-8 text-center text-sm text-muted-foreground">
             <p>
               &copy; 2024 Defence Africa. All rights reserved. | Strategic
               Intelligence on China-Africa Security Dynamics
